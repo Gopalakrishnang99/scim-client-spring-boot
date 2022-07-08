@@ -1,0 +1,11 @@
+package com.nex.spring.scim.dto;
+
+public class EnterpriseUser {
+	
+	private String employeeNumber;
+	private String costCenter;
+	private String organization;
+	private String division;
+	private String department;
+	private Manager manager;
+}

@@ -1,0 +1,12 @@
+package com.nex.spring.scim.dto;
+
+public class Address {
+	
+	private String formatted;
+	private String streetAddress;
+	private String locality;
+	private String region;
+	private String postalCode;
+	private String country;
+	private String type;
+}

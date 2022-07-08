@@ -1,0 +1,33 @@
+package com.nex.spring.scim.dto;
+
+import java.net.URI;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class UserResource {
+	
+	private String[] schemas;
+	private String userName;
+	private Name name;
+	private String displayName;
+	private String nickName;
+	private URI profileUrl;
+	private String title;
+	private String useType;
+	private String preferredLanguage;
+	private String locale;
+	private String timezone;
+	private boolean active;
+	private String password;
+	private Email[] emails;
+	private PhoneNumber[] phoneNumbers;
+	private IMS[] ims;
+	private Photo[] photos;
+	private Address[] addresses;
+	private Group[] groups;
+	private Role[] roles;
+	private X509Certificate[] x509certificates;
+	private EnterpriseUser enterpriseUser;
+
+}

@@ -1,0 +1,12 @@
+package com.nex.spring.scim.dto;
+
+public class Manager {
+	
+	private String value;
+	private URI $ref;
+	private String displayName;
+	
+	
+	
+
+}

@@ -1,0 +1,9 @@
+package com.nex.spring.scim.dto;
+
+public class X509Certificate {
+	
+	private byte[] value;
+	private String display;
+	private String type;
+	primary Boolean primary;
+}

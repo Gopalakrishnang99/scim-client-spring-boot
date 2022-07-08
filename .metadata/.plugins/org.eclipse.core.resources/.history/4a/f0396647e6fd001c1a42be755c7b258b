@@ -1,0 +1,5 @@
+package com.nex.spring.scim.controller;
+
+public class UserController {
+
+}

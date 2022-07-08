@@ -1,0 +1,11 @@
+package com.nex.spring.scim.dto;
+
+import java.net.URI;
+
+public class Photo {
+	
+	URI value;
+	String display;
+	String type;
+	boolean primary;
+}

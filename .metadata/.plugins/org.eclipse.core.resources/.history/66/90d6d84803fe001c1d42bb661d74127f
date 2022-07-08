@@ -1,0 +1,5 @@
+package com.nex.spring.scim.dto;
+
+public class EnterpriseUser {
+
+}

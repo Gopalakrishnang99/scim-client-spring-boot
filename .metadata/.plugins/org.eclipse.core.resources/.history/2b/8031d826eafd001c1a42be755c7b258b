@@ -1,0 +1,11 @@
+package com.nex.spring.scim.dto;
+
+import java.net.URI;
+
+public class Group {
+	
+	private String value;
+	private URI $ref;
+	private String display;
+	private String type;
+}

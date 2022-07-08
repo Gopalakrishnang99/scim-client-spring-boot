@@ -1,0 +1,8 @@
+package com.nex.spring.scim.dto;
+
+public class User {
+	
+	String name;
+	String title;
+
+}
