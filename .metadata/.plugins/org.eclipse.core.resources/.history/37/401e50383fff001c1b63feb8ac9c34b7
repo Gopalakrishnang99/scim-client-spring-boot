@@ -1,0 +1,129 @@
+package com.nex.spring.scim.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_address")
+public class Address implements Serializable {
+	
+	@Column(name="formatted_name")
+	private String formatted;
+	
+	@Column(name="street_address")
+	private String streetAddress;
+	
+	@Column(name="locality")
+	private String locality;
+	
+	@Column(name="region")
+	private String region;
+	
+	@Column(name="postal_code")
+	private String postalCode;
+	
+	@Column(name="country")
+	private String country;
+	
+	@Column(name="type")
+	private String type;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="userId",referencedColumnName="userId",insertable=false,updatable=false)
+	private UserDetails userDetails;
+
+	public Address(String formatted, String streetAddress, String locality, String region, String postalCode,
+			String country, String type, UserDetails userDetails) {
+		super();
+		this.formatted = formatted;
+		this.streetAddress = streetAddress;
+		this.locality = locality;
+		this.region = region;
+		this.postalCode = postalCode;
+		this.country = country;
+		this.type = type;
+		this.userDetails = userDetails;
+	}
+
+	public Address() {
+		super();
+	}
+
+	public String getFormatted() {
+		return formatted;
+	}
+
+	public void setFormatted(String formatted) {
+		this.formatted = formatted;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getLocality() {
+		return locality;
+	}
+
+	public void setLocality(String locality) {
+		this.locality = locality;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [formatted=" + formatted + ", streetAddress=" + streetAddress + ", locality=" + locality
+				+ ", region=" + region + ", postalCode=" + postalCode + ", country=" + country + ", type=" + type
+				+ ", userDetails=" + userDetails + "]";
+	}
+	
+}

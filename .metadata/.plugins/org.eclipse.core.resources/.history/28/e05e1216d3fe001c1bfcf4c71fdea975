@@ -1,0 +1,6 @@
+package com.nex.spring.scim.service;
+
+@Service
+public class UserService {
+
+}

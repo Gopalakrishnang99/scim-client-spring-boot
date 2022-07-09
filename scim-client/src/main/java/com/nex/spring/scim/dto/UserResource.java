@@ -16,7 +16,7 @@ public class UserResource {
 	private String nickName;
 	private URI profileUrl;
 	private String title;
-	private String useType;
+	private String userType;
 	private String preferredLanguage;
 	private String locale;
 	private String timezone;
@@ -31,12 +31,13 @@ public class UserResource {
 	private Role[] roles;
 	private X509Certificate[] x509certificates;
 	private EnterpriseUser enterpriseUser;
+	private Meta meta;
 	
 	public UserResource(String[] schemas, String userName, Name name, String displayName, String nickName,
 			URI profileUrl, String title, String useType, String preferredLanguage, String locale, String timezone,
 			boolean active, String password, Email[] emails, PhoneNumber[] phoneNumbers, IMS[] ims, Photo[] photos,
 			Address[] addresses, Group[] groups, Role[] roles, X509Certificate[] x509certificates,
-			EnterpriseUser enterpriseUser) {
+			EnterpriseUser enterpriseUser, Meta meta) {
 		super();
 		this.schemas = schemas;
 		this.userName = userName;
@@ -45,7 +46,7 @@ public class UserResource {
 		this.nickName = nickName;
 		this.profileUrl = profileUrl;
 		this.title = title;
-		this.useType = useType;
+		this.userType = useType;
 		this.preferredLanguage = preferredLanguage;
 		this.locale = locale;
 		this.timezone = timezone;
@@ -60,10 +61,7 @@ public class UserResource {
 		this.roles = roles;
 		this.x509certificates = x509certificates;
 		this.enterpriseUser = enterpriseUser;
-	}
-
-	public UserResource() {
-		super();
+		this.meta = meta;
 	}
 
 	public String[] getSchemas() {
@@ -73,8 +71,7 @@ public class UserResource {
 	public void setSchemas(String[] schemas) {
 		this.schemas = schemas;
 	}
-	
-	@JsonProperty("name")
+
 	public String getUserName() {
 		return userName;
 	}
@@ -124,11 +121,11 @@ public class UserResource {
 	}
 
 	public String getUseType() {
-		return useType;
+		return userType;
 	}
 
 	public void setUseType(String useType) {
-		this.useType = useType;
+		this.userType = useType;
 	}
 
 	public String getPreferredLanguage() {
@@ -244,17 +241,25 @@ public class UserResource {
 		this.enterpriseUser = enterpriseUser;
 	}
 
+	public Meta getMeta() {
+		return meta;
+	}
+
+	public void setMeta(Meta meta) {
+		this.meta = meta;
+	}
+
 	@Override
 	public String toString() {
 		return "UserResource [schemas=" + Arrays.toString(schemas) + ", userName=" + userName + ", name=" + name
 				+ ", displayName=" + displayName + ", nickName=" + nickName + ", profileUrl=" + profileUrl + ", title="
-				+ title + ", useType=" + useType + ", preferredLanguage=" + preferredLanguage + ", locale=" + locale
+				+ title + ", useType=" + userType + ", preferredLanguage=" + preferredLanguage + ", locale=" + locale
 				+ ", timezone=" + timezone + ", active=" + active + ", password=" + password + ", emails="
 				+ Arrays.toString(emails) + ", phoneNumbers=" + Arrays.toString(phoneNumbers) + ", ims="
 				+ Arrays.toString(ims) + ", photos=" + Arrays.toString(photos) + ", addresses="
 				+ Arrays.toString(addresses) + ", groups=" + Arrays.toString(groups) + ", roles="
 				+ Arrays.toString(roles) + ", x509certificates=" + Arrays.toString(x509certificates)
-				+ ", enterpriseUser=" + enterpriseUser + "]";
+				+ ", enterpriseUser=" + enterpriseUser + ", meta=" + meta + "]";
 	}	
 
 }

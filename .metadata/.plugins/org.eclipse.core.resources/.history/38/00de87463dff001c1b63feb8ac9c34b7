@@ -1,0 +1,32 @@
+package com.nex.spring.scim.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_address")
+public class Address {
+	
+	@Column(name="formatted_name")
+	private String formatted;
+	
+	@Column(name="street_address")
+	private String streetAddress;
+	
+	@Column(name="locality")
+	private String locality;
+	
+	@Column(name="region")
+	private String region;
+	
+	@Column(name="postal_code")
+	private String postalCode;
+	
+	@Column(name="country")
+	private String country;
+	
+	@Column(name="type")
+	private String type;
+	
+}

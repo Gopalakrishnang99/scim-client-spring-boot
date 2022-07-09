@@ -1,0 +1,8 @@
+package com.nex.spring.scim.model;
+
+
+@Entity
+
+public class User {
+
+}

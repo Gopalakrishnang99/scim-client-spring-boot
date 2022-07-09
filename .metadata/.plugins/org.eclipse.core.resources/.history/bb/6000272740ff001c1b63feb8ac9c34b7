@@ -1,0 +1,117 @@
+package com.nex.spring.scim.model;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_details")
+public class UserDetails implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="user_seq-gen")
+	@SequenceGenerator(name="user_seq-gen",sequenceName="user_seq",allocationSize=1)
+	@Column(name="user_id")
+	private Long userId;
+	
+	@Column(name="username")
+	private String userName;
+	
+	@Column(name="display_name")
+	private String displayName;
+	
+	@Column(name="given_name")
+	private String givenName;
+	
+	@Column(name="family_name")
+	private String familyName;
+	
+	@Column(name="created")
+	private LocalDateTime created;
+	
+	@Column(name="last_modified")
+	private LocalDateTime lastModified;
+	
+	@OneToMany(mappedBy="userDetails")
+	private Set<Address> address;
+
+	public UserDetails(Long userId, String userName, String displayName, String givenName, String familyName,
+			Set<Address> address) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.displayName = displayName;
+		this.givenName = givenName;
+		this.familyName = familyName;
+		this.address = address;
+	}
+
+	public UserDetails() {
+		super();
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getGivenName() {
+		return givenName;
+	}
+
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+
+	public String getFamilyName() {
+		return familyName;
+	}
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+
+	public Set<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(Set<Address> address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetails [userId=" + userId + ", userName=" + userName + ", displayName=" + displayName
+				+ ", givenName=" + givenName + ", familyName=" + familyName + ", address=" + address + "]";
+	}
+	
+}
+
+    

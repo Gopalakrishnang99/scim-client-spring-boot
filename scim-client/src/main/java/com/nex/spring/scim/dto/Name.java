@@ -1,5 +1,8 @@
 package com.nex.spring.scim.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Name {
 	
 	private String givenName;
