@@ -32,7 +32,7 @@ public class UserService {
 	PhoneNumberRepository phoneNumbeRepo;
 	
 	@Transactional
-	public void createUser(UserResource userResource) {
+	public UserDetails createUser(UserResource userResource) {
 		UserDetails user=new UserDetails();
 
 		user.setUserName(userResource.getUserName());
@@ -52,9 +52,10 @@ public class UserService {
 		user.setDepartment(userResource.getEnterpriseUser().getDepartment());
 		user.setManagerId(Long.valueOf(userResource.getEnterpriseUser().getManager().getValue()));
 		
-		userRepo.save(user);
+		var savedObject=userRepo.save(user);
 		
 		saveAddresses(userResource.getAddresses(),user);
+		return savedObject;
 	}
 	
 	public UserDetails getUserDetailsById(Long id) {

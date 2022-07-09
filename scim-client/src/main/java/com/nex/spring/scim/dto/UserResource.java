@@ -32,12 +32,14 @@ public class UserResource {
 	private X509Certificate[] x509certificates;
 	private EnterpriseUser enterpriseUser;
 	private Meta meta;
-	
+	private Long id;
+	private String externalId;
+
 	public UserResource(String[] schemas, String userName, Name name, String displayName, String nickName,
-			URI profileUrl, String title, String useType, String preferredLanguage, String locale, String timezone,
+			URI profileUrl, String title, String userType, String preferredLanguage, String locale, String timezone,
 			boolean active, String password, Email[] emails, PhoneNumber[] phoneNumbers, IMS[] ims, Photo[] photos,
 			Address[] addresses, Group[] groups, Role[] roles, X509Certificate[] x509certificates,
-			EnterpriseUser enterpriseUser, Meta meta) {
+			EnterpriseUser enterpriseUser, Meta meta, Long id, String externalId) {
 		super();
 		this.schemas = schemas;
 		this.userName = userName;
@@ -46,7 +48,7 @@ public class UserResource {
 		this.nickName = nickName;
 		this.profileUrl = profileUrl;
 		this.title = title;
-		this.userType = useType;
+		this.userType = userType;
 		this.preferredLanguage = preferredLanguage;
 		this.locale = locale;
 		this.timezone = timezone;
@@ -62,6 +64,12 @@ public class UserResource {
 		this.x509certificates = x509certificates;
 		this.enterpriseUser = enterpriseUser;
 		this.meta = meta;
+		this.id = id;
+		this.externalId = externalId;
+	}
+
+	public UserResource() {
+		super();
 	}
 
 	public String[] getSchemas() {
@@ -249,17 +257,42 @@ public class UserResource {
 		this.meta = meta;
 	}
 
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getExternalId() {
+		return externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
+	}
+
 	@Override
 	public String toString() {
 		return "UserResource [schemas=" + Arrays.toString(schemas) + ", userName=" + userName + ", name=" + name
 				+ ", displayName=" + displayName + ", nickName=" + nickName + ", profileUrl=" + profileUrl + ", title="
-				+ title + ", useType=" + userType + ", preferredLanguage=" + preferredLanguage + ", locale=" + locale
+				+ title + ", userType=" + userType + ", preferredLanguage=" + preferredLanguage + ", locale=" + locale
 				+ ", timezone=" + timezone + ", active=" + active + ", password=" + password + ", emails="
 				+ Arrays.toString(emails) + ", phoneNumbers=" + Arrays.toString(phoneNumbers) + ", ims="
 				+ Arrays.toString(ims) + ", photos=" + Arrays.toString(photos) + ", addresses="
 				+ Arrays.toString(addresses) + ", groups=" + Arrays.toString(groups) + ", roles="
 				+ Arrays.toString(roles) + ", x509certificates=" + Arrays.toString(x509certificates)
-				+ ", enterpriseUser=" + enterpriseUser + ", meta=" + meta + "]";
+				+ ", enterpriseUser=" + enterpriseUser + ", meta=" + meta + ", id=" + id + ", externalId=" + externalId
+				+ "]";
 	}	
 
 }
